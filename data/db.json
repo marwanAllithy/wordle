@@ -50,7 +50,22 @@
        {"id": 48, "word": "pipes"},
        {"id": 49, "word": "pairs"},
        {"id": 50, "word": "pills"},
-       {"id": 51, "word": "ninja"}
+       {"id": 51, "word": "ninja"},
+       {"id": 52, "word": "crash"},
+       {"id": 53, "word": "crush"},
+       {"id": 54, "word": "smoke"},
+       {"id": 55, "word": "shits"},
+       {"id": 56, "word": "mango"},
+       {"id": 57, "word": "drops"},
+       {"id": 58, "word": "tears"},
+       {"id": 59, "word": "black"},
+       {"id": 60, "word": "white"},
+       {"id": 61, "word": "green"},
+       {"id": 62, "word": "pasta"},
+       {"id": 63, "word": "bingo"},
+       {"id": 64, "word": "clean"},
+       {"id": 65, "word": "hours"},
+       {"id": 66, "word": "watch"}
 
      ]
    }

@@ -1,20 +1,21 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios';
+import { Wordle } from '../hooks/compos/Wordle';
 function App() {
-  const [solution, setSolution] = useState(null);
+  const [solution, setSolution] = useState();
   useEffect(() => {
     fetch('http://localhost:3001/solutions')
     .then((res) => res.json())
     .then(json => {
       // random int between 1  and 14
       const randomSolution = json[ Math.floor(Math.random() * json.length)]
-      setSolution(randomSolution)
-      console.log(json)
+      setSolution(randomSolution.word)
+      // console.log(json)
     })
   }, [setSolution])
   return (
     <div className="App">
-      
+      <h1>Wordle</h1>
+      {solution &&  <Wordle solution={solution} />}
     </div>
   )
 }

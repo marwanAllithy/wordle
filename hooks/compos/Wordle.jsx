@@ -14,7 +14,8 @@ export const Wordle = ({solution}) => {
      },[guesses, turn, isCorrect])
    return (
         <>
-        <div>solution - {solution}</div>
+        {turn === 6 || isCorrect === true &&  <div>solution - {solution}</div>}
+        {/* <div>solution - {solution}</div> */}
         {/* <div>current guess - {currentGuess}</div> */}
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
         </>

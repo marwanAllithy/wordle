@@ -72,7 +72,7 @@ const useWorldle = (solution) => {
                }
                
               const formatted = formateGuess();
-              console.log(formatted)
+          //     console.log(formatted)
               addNewGuesses(formatted)
 
           }

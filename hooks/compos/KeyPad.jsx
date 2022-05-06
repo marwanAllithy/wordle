@@ -7,11 +7,10 @@ export default function KeyPad() {
                "z", "x", "c", "v", "b", "n", "m",
      ]
      const [letters, setLetters] = React.useState();
-     if (!letters) {
-          
-     }
      React.useEffect(() => {
-          setLetters(lettersArray)
+          if (!letters) {           
+               setLetters(lettersArray)
+          }
      })
   return (
     <div className="keypad">

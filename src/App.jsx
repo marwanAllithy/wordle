@@ -1,14 +1,14 @@
-import { useState, useLayoutEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Wordle } from '../hooks/compos/Wordle';
 import solutionsData from '../data/db';
 function App() {
   const [solution, setSolution] = useState();
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!solution) {
       setSolution(solutionsData[Math.floor(Math.random() * solutionsData.length)]);
     }
   },[])
-  console.log(solution)
+  // console.log(solution)
   return (
     <div className="App">
       <h1>Wordle</h1>

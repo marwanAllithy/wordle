@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function Row({guess, currentGuess}) {
+export default function Row({guess, currentGuess}, index) {
      if (guess) {
           return (
                <div className="row past">
                     {
                     guess.map((l, index) => (
-                         <div key={l} className={l.color} >{l.key}</div>
+                         <div key={index} className={l.color} >{l.key}</div>
                     ))
                     }
                </div>
@@ -15,14 +15,17 @@ export default function Row({guess, currentGuess}) {
      if (currentGuess) {
           let letters = currentGuess.split("");
           return (
-               <div className="row current">
+               <div className="row current" key={index}>
+
                     {letters.map((letter, i) => (
                          <div key={i} className="filled">{letter}</div>
                     ))}
+
                     {[...Array(5 - letters.length)]
-                    .map((_, i ) => (
-                         <div key={i}></div>
+                    .map((_, index) => (
+                         <div key={index.length}></div>
                     ))}
+
                </div>
           )
      }

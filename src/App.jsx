@@ -1,22 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import { Wordle } from '../hooks/compos/Wordle';
 import solutionsData from '../data/db';
 function App() {
   const [solution, setSolution] = useState();
-  if (!solution) {
-    setSolution(solutionsData[Math.floor(Math.random() * solutionsData.length)]);
-  }
+  useLayoutEffect(() => {
+    if (!solution) {
+      setSolution(solutionsData[Math.floor(Math.random() * solutionsData.length)]);
+    }
+  },[])
   console.log(solution)
-  // useEffect(() => {
-  //   fetch('http://localhost:3001/solutions')
-  //   .then((res) => res.json())
-  //   .then(json => {
-  //     // random int between 1  and 14
-  //     const randomSolution = json[ Math.floor(Math.random() * json.length)]
-  //     setSolution(randomSolution.word)
-  //     // console.log(json)
-  //   })
-  // }, [setSolution])
   return (
     <div className="App">
       <h1>Wordle</h1>

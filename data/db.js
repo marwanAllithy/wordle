@@ -65,6 +65,11 @@
         "clean",
         "hours",
         "watch",
+        "waste",
+        "wires",
+        "walls",
+        "worry",
+        "water",
         
     ]
    export default  solutionsData;

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Wordle } from '../hooks/compos/Wordle';
 import solutionsData from '../data/db';
+import {BsFillSunFill, BsFillMoonFill} from 'react-icons/bs';
 function App() {
   const [solution, setSolution] = useState();
+  const [isLightMode, setIsLightMode] = useState(false);
   useEffect(() => {
     if (!solution) {
       setSolution(solutionsData[Math.floor(Math.random() * solutionsData.length)]);
@@ -10,9 +12,18 @@ function App() {
   },[])
   // console.log(solution)
   return (
-    <div className="App">
-      <h1>Wordle</h1>
-      {solution &&  <Wordle solution={solution} />}
+    <div className="App" style={{background: isLightMode ? "#121213" : "#ededed",transition: "300ms"}}>
+      <nav className="navbar">
+        <div></div>
+      <h1 style={{color: !isLightMode ? "#121213" : "#ededed"}} >Wordle</h1>
+      <div style={{color: !isLightMode ? "#121213" : "#ededed"}} 
+      onClick={() => isLightMode ? setIsLightMode(false) : setIsLightMode(true)} className="mode__button click">
+        {
+          isLightMode ? <BsFillSunFill /> : <BsFillMoonFill />
+        }
+      </div>
+      </nav>
+      {solution &&  <Wordle isLightMode={isLightMode} solution={solution} />}
     </div>
   )
 }
@@ -20,6 +31,9 @@ function App() {
 export default App
 
 /* 
+graphical features:
+-- add dark mode :#121213 and light mode #ededed
+-- make it a look alike wordle
 data we need to track:
   -- solution
     -- 5 letter string, e.g. 'drain'

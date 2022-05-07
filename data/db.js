@@ -47,6 +47,11 @@
         "trash",
         "alien",
         "magic",
-        "tesla"
+        "tesla",
+        "chefs",
+        "chess",
+        "cheek",
+        "cheer",
+        "truck",
     ]
    export default  solutionsData;

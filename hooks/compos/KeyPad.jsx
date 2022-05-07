@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function KeyPad() {
+export default function KeyPad({isLightMode}) {
      const lettersArray = [
           "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
             "a", "s", "d", "f", "g", "h", "j", "k", "l",
@@ -16,7 +16,11 @@ export default function KeyPad() {
     <div className="keypad">
          {letters?.map((l) => {
               return (
-                    <div key={l} className="letter">{l}</div>
+                    <div  key={l}
+                    style={{background: !isLightMode ? "#121213" : "#ededed", transition: "300ms",
+                    color: isLightMode ? "#121213" : "#ededed"}}
+                     className="letter"
+                     >{l}</div>
               )
          })}
     </div>

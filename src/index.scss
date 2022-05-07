@@ -3,13 +3,27 @@ body {
   font-size: 1em;
   font-family: verdana;
   margin: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+.App{
+  max-height: 100vh !important;
 }
 h1 {
-  font-size: 1.2em;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
-  margin: 0 0 30px 0;
+  font-size: 2rem;
   color: #333;
+  margin: auto 0;
+}
+.mode__button{
+  margin: auto 0;
+  font-size: 2rem;
+}
+.navbar{
+  border-bottom: 2px solid #bebebe;
+  display: flex;
+  height: 55px;
+  margin-bottom: 30px;
+  justify-content: space-around;
 }
 /* rows */
 .row {
@@ -61,12 +75,12 @@ h1 {
 @keyframes flip {
   0% {
     transform: rotateX(0);
-    background: #fff;
+    // background: #fff;
     border-color: #333;
   }
   45% {
     transform: rotateX(90deg);
-    background: white;
+    // background: white;
     border-color: #333;
   }
   55% {
@@ -78,7 +92,7 @@ h1 {
     transform: rotateX(0deg);
     background: var(--background);
     border-color: var(--border-color);
-    color: #eee;
+    // color: #eee;
   }
 }
 @keyframes bounce {
@@ -96,7 +110,7 @@ h1 {
   }
 }
 .row.current > div.filled {
-  animation: bounce 0.2s ease-in-out forwards;
+  animation: bounce 0.1s ease-in-out forwards;
 }
 .keypad {
   max-width: 500px;
@@ -110,4 +124,13 @@ h1 {
   display: inline-block;
   border-radius: 6px;
   line-height: 50px;
+}
+.click{
+  transition: 200ms;
+}
+.click:hover{
+  scale: .9;
+}
+.click:active{
+  scale: 1.1;
 }

@@ -6,7 +6,10 @@ export default function Row({ guess, currentGuess, isLightMode }, index) {
       <div className="row past">
         {guess.map((l, index) => (
           <div
-            style={{ color: !isLightMode ? "#121213" : "#ededed" }}
+            style={{
+              color: !isLightMode ? "#121213" : "#ededed",
+              transition: "300ms",
+            }}
             key={index}
             className={l.color}
           >
@@ -28,7 +31,7 @@ export default function Row({ guess, currentGuess, isLightMode }, index) {
         }}
       >
         {letters.map((letter, i) => (
-          <div key={i} className="filled">
+          <div key={i} className="filled" style={{ transition: "300ms" }}>
             {letter}
           </div>
         ))}

@@ -12,7 +12,7 @@ export const Wordle = ({ solution, isLightMode }) => {
     return () => window.removeEventListener("keyup", handleKeyUp);
   }, [handleKeyUp]);
   useEffect(() => {
-    console.log(guesses, turn, isCorrect);
+//     console.log(guesses, turn, isCorrect);
   }, [guesses, turn, isCorrect]);
   return (
     <div

@@ -44,13 +44,13 @@ export default function KeyPad({ isLightMode, handleKeyUp, usedKeys }) {
     <div className="keypad">
       {letters?.map((l) => {
         const color = usedKeys[l];
-        console.log(usedKeys);
-        console.log(color);
+     //    console.log(usedKeys);
+     //    console.log(color);
         return (
           <div
             key={l}
             onClick={() => handleKeyUp({ key: l })}
-            style={{
+             style={{
               background: !isLightMode ? "#121213" : "#ededed",
               transition: "300ms",
               color: isLightMode ? "#121213" : "#ededed",

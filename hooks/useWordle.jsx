@@ -9,7 +9,7 @@ const useWorldle = (solution) => {
 
   //format a guess into a array of letter objects
   const formateGuess = () => {
-    console.log("formatting the guess - ", currentGuess);
+    // console.log("formatting the guess - ", currentGuess);
     let solutionArray = [...solution];
     let formattedGuess = [...currentGuess].map((i) => {
       return { key: i, color: "null" };
@@ -50,13 +50,13 @@ const useWorldle = (solution) => {
       formattedGuess.forEach((l) => {
         const currentColor = prevUsedKeys[l.key];
         // console.log(prevUsedKeys)
-
+        console.log(l.color)
         if (l.color === "green") {
           prevUsedKeys[l.key] = "green";
           return;
         }
-        if (l.color === "yellow" && currentColor !== ("gray" || "green")) {
-          prevUsedKeys[l.key] === "yellow";
+        if (l.color === "yellow" && currentColor !== "green") {
+          prevUsedKeys[l.key] = "almost";
           return;
         }
         if (l.color === "null" && currentColor !== ("green" || "yellow")) {

@@ -19,7 +19,7 @@ export const Wordle = ({solution, isLightMode}) => {
         {/* <div>solution - {solution}</div> */}
         {/* <div>current guess - {currentGuess}</div> */}
         <Grid isLightMode={isLightMode} currentGuess={currentGuess} guesses={guesses} turn={turn} />
-        <KeyPad isLightMode={isLightMode} />
+        <KeyPad handleKeyUp={handleKeyUp} isLightMode={isLightMode} />
         </div>
    )
 }

@@ -6,7 +6,7 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-.App{
+.App {
   // max-height: 100vh !important;
 }
 h1 {
@@ -14,11 +14,11 @@ h1 {
   color: #333;
   margin: auto 0;
 }
-.mode__button{
+.mode__button {
   margin: auto 0;
   font-size: 2rem;
 }
-.navbar{
+.navbar {
   border-bottom: 2px solid #bebebe;
   display: flex;
   height: 55px;
@@ -96,7 +96,6 @@ h1 {
   }
 }
 @keyframes bounce {
-
   0% {
     transform: scale(1);
     border-color: #ddd;
@@ -126,22 +125,22 @@ h1 {
   border-radius: 6px;
   line-height: 50px;
 }
-.click{
+.click {
   transition: 200ms;
 }
-.click:hover{
-  scale: .9;
+.click:hover {
+  scale: 0.9;
 }
-.click:active{
+.click:active {
   scale: 1.1;
 }
 .keypad > div.green {
   background: #5ac85a !important;
-  transition: all  0.3s ease-in !important;
+  transition: all 0.3s ease-in !important;
 }
-.keypad > div.yellow {
+.keypad > .yellow {
   background: #e2cc68 !important;
-  transition: all  0.3s ease-in !important;
+  transition: all 0.3s ease-in !important;
 }
 .keypad > div.null {
   background: #a1a1a1 !important;

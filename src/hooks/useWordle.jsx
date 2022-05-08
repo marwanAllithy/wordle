@@ -5,6 +5,7 @@ const useWorldle = (solution) => {
      const [guesses, setGuesses] = useState([...Array(6)]);
      const [history, setHistory] = useState([]);
      const [isCorrect, setIsCorrect] = useState(false);
+     const [usedKeys, setUsedKeys] = useState({});
 
      //format a guess into a array of letter objects
      const formateGuess = () => {
@@ -43,6 +44,26 @@ const useWorldle = (solution) => {
           })
           setHistory((prevHistory) => {
                return [...prevHistory, currentGuess]
+          })
+          setUsedKeys(prevUsedKeys => {
+               formattedGuess.forEach(l =>{
+                    const currentColor = prevUsedKeys[l.key];
+                    // console.log(prevUsedKeys)
+
+                    if (l.color === "green") {
+                         prevUsedKeys[l.key] = "green";
+                         return;
+                    }
+                    if (l.color === "yellow" && currentColor !== ("gray" || "green")) {
+                         prevUsedKeys[l.key] === "yellow";
+                         return;
+                    }
+                    if (l.color === "null" && currentColor !== ("green" || "yellow")) {
+                         prevUsedKeys[l.key] = "null";
+                         return;
+                    }
+               })
+               return prevUsedKeys
           })
           setTurn(turn + 1);
           setCurrentGuess("");
@@ -90,7 +111,7 @@ const useWorldle = (solution) => {
           }
      }
 
-     return {turn, currentGuess, guesses, isCorrect, handleKeyUp}
+     return {turn, currentGuess, guesses, usedKeys, isCorrect, handleKeyUp}
 }
 
 export default useWorldle

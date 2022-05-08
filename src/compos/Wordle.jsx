@@ -4,7 +4,7 @@ import Grid from "./Grid";
 import KeyPad from "./KeyPad";
 
 export const Wordle = ({solution, isLightMode}) => {
-     const {currentGuess, guesses, isCorrect, turn, handleKeyUp} = useWorldle(solution);
+     const {currentGuess, guesses, isCorrect, usedKeys, turn, handleKeyUp} = useWorldle(solution);
 
      useEffect(() => {
           window.addEventListener("keyup", handleKeyUp);
@@ -20,10 +20,8 @@ export const Wordle = ({solution, isLightMode}) => {
               height: "90vh",
               }} >
         {turn === 4 || isCorrect === true &&  <div>solution - {solution}</div>}
-        {/* <div>solution - {solution}</div> */}
-        {/* <div>current guess - {currentGuess}</div> */}
         <Grid isLightMode={isLightMode} currentGuess={currentGuess} guesses={guesses} turn={turn} />
-        <KeyPad handleKeyUp={handleKeyUp} isLightMode={isLightMode} />
+        <KeyPad usedKeys={usedKeys} handleKeyUp={handleKeyUp} isLightMode={isLightMode} />
         </div>
    )
 }

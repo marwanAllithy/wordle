@@ -118,7 +118,8 @@ h1 {
 }
 .keypad > div {
   margin: 5px;
-  width: 40px;
+  min-width: 40px;
+  // padding: 0 2px;
   height: 50px;
   background: #eee;
   display: inline-block;
@@ -135,17 +136,14 @@ h1 {
   scale: 1.1;
 }
 .keypad > div.green {
-  background: #5ac85a;
-  color: #fff;
-  transition: all 0.3s ease-in;
+  background: #5ac85a !important;
+  transition: all  0.3s ease-in !important;
 }
 .keypad > div.yellow {
-  background: #e2cc68;
-  color: #fff;
-  transition: all 0.3s ease-in;
+  background: #e2cc68 !important;
+  transition: all  0.3s ease-in !important;
 }
-.keypad > div.grey {
-  background: #a1a1a1;
-  color: #fff;
-  transition: all 0.3s ease-in;
+.keypad > div.null {
+  background: #a1a1a1 !important;
+  transition: all 0.3s ease-in !important;
 }

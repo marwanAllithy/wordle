@@ -1,4 +1,4 @@
-import useWorldle from "../useWordle";
+import useWorldle from "../hooks/useWordle";
 import {useEffect} from "react"
 import Grid from "./Grid";
 import KeyPad from "./KeyPad";
@@ -14,7 +14,11 @@ export const Wordle = ({solution, isLightMode}) => {
           console.log(guesses, turn, isCorrect)
      },[guesses, turn, isCorrect])
    return (
-        <div style={{background: isLightMode ? "#121213" : "#ededed", transition: "300ms"}} >
+        <div style={{
+             background: isLightMode ? "#121213" : "#ededed",
+              transition: "300ms",
+              height: "90vh",
+              }} >
         {turn === 4 || isCorrect === true &&  <div>solution - {solution}</div>}
         {/* <div>solution - {solution}</div> */}
         {/* <div>current guess - {currentGuess}</div> */}

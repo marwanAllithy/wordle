@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Wordle } from '../hooks/compos/Wordle';
+import { Wordle } from './compos/Wordle';
 import solutionsData from '../data/db';
 import {BsFillSunFill, BsFillMoonFill} from 'react-icons/bs';
 function App() {
@@ -34,6 +34,10 @@ export default App
 graphical features:
 -- add dark mode :#121213 and light mode #ededed
 -- make it a look alike wordle
+ make the keypad functional:
+-- add a keypad
+-- add a grid
+--change colors to the color of the key
 data we need to track:
   -- solution
     -- 5 letter string, e.g. 'drain'

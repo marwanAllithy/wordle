@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Wordle } from "./compos/Wordle";
 import solutionsData from "../data/db";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
+import { useCookies } from "react-cookie";
 function App() {
   const [solution, setSolution] = useState();
   const [isLightMode, setIsLightMode] = useState(false);
@@ -13,6 +14,13 @@ function App() {
     }
   }, []);
   // console.log(solution)
+
+  //Cookies
+  const [cookies, setCookie] = useCookies(["score"]);
+  const [tries, setTries] = useState(0);
+  const [wins, setWins] = useState(0);
+  console.log(wins, tries);
+
   return (
     <div
       className="App"
@@ -22,7 +30,11 @@ function App() {
       }}
     >
       <nav className="navbar">
-        <div></div>
+        <div className="scores">
+          <h2 className="scores__statement">
+            wins: {cookies.wins} | tries: {cookies.tries}
+          </h2>
+        </div>
         <h1 style={{ color: !isLightMode ? "#121213" : "#ededed" }}>Wordle</h1>
         <div
           style={{ color: !isLightMode ? "#121213" : "#ededed" }}
@@ -34,7 +46,14 @@ function App() {
           {isLightMode ? <BsFillSunFill /> : <BsFillMoonFill />}
         </div>
       </nav>
-      {solution && <Wordle isLightMode={isLightMode} solution={solution} />}
+      {solution && (
+        <Wordle
+          setWins={setWins}
+          setTries={setTries}
+          isLightMode={isLightMode}
+          solution={solution}
+        />
+      )}
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
+
 const useWorldle = (solution) => {
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
@@ -6,6 +8,9 @@ const useWorldle = (solution) => {
   const [history, setHistory] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({});
+  const [cookies, setCookie] = useCookies(["score"]);
+  const [tries, setTries] = useState(cookies.tries);
+  const [wins, setWins] = useState(cookies.wins);
 
   //format a guess into a array of letter objects
   const formateGuess = () => {
@@ -37,6 +42,8 @@ const useWorldle = (solution) => {
   const addNewGuesses = (formattedGuess) => {
     if (currentGuess === solution) {
       setIsCorrect(true);
+      setWins(+wins + 1);
+      setTries(+tries + 1);
     }
     setGuesses((prevGuesses) => {
       let newGuesses = [...prevGuesses];
@@ -49,8 +56,6 @@ const useWorldle = (solution) => {
     setUsedKeys((prevUsedKeys) => {
       formattedGuess.forEach((l) => {
         const currentColor = prevUsedKeys[l.key];
-        // console.log(prevUsedKeys)
-        console.log(l.color)
         if (l.color === "green") {
           prevUsedKeys[l.key] = "green";
           return;
@@ -76,6 +81,7 @@ const useWorldle = (solution) => {
       //only add guess if turn is less that 5
       if (turn > 5) {
         console.log("you have reached all of your guesses");
+        setTries(+tries + 1);
         return;
       }
 
@@ -111,7 +117,16 @@ const useWorldle = (solution) => {
     }
   };
 
-  return { turn, currentGuess, guesses, usedKeys, isCorrect, handleKeyUp };
+  return {
+    turn,
+    currentGuess,
+    guesses,
+    usedKeys,
+    wins,
+    tries,
+    isCorrect,
+    handleKeyUp,
+  };
 };
 
 export default useWorldle;

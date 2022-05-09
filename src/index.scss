@@ -13,6 +13,7 @@ h1 {
   font-size: 2rem;
   color: #333;
   margin: auto 0;
+  
 }
 .mode__button {
   margin: auto 0;
@@ -145,4 +146,10 @@ h1 {
 .keypad > div.null {
   background: #a1a1a1 !important;
   transition: all 0.3s ease-in !important;
+}
+.scores{
+  margin: auto 0;
+  .scores__statement{
+    margin: auto 0;
+  }
 }

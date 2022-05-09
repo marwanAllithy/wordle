@@ -2,17 +2,31 @@ import useWorldle from "../../hooks/useWordle";
 import { useEffect } from "react";
 import Grid from "./Grid";
 import KeyPad from "./KeyPad";
+import { useCookies } from "react-cookie";
 
-export const Wordle = ({ solution, isLightMode }) => {
-  const { currentGuess, guesses, isCorrect, usedKeys, turn, handleKeyUp } =
-    useWorldle(solution);
+export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
+  const {
+    currentGuess,
+    guesses,
+    isCorrect,
+    usedKeys,
+    turn,
+    wins,
+    tries,
+    handleKeyUp,
+  } = useWorldle(solution);
+  const [cookies, setCookie] = useCookies(["score"]);
+  setCookie("tries", tries, { path: "/" });
+  setCookie("wins", wins, { path: "/" });
+  setWins(wins);
+  setTries(tries);
 
   useEffect(() => {
     window.addEventListener("keyup", handleKeyUp);
     return () => window.removeEventListener("keyup", handleKeyUp);
   }, [handleKeyUp]);
   useEffect(() => {
-//     console.log(guesses, turn, isCorrect);
+    //     console.log(guesses, turn, isCorrect);
   }, [guesses, turn, isCorrect]);
   return (
     <div
@@ -21,8 +35,8 @@ export const Wordle = ({ solution, isLightMode }) => {
         transition: "300ms",
         height: "90vh",
       }}
-    >
-      {turn === 4 || (isCorrect === true && <div>solution - {solution}</div>)}
+    > 
+      {solution}
       <Grid
         isLightMode={isLightMode}
         currentGuess={currentGuess}

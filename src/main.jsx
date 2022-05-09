@@ -5,7 +5,7 @@ import "./index.scss";
 import { CookiesProvider } from "react-cookie";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <CookiesProvider>
+  <CookiesProvider>
     <App />
-    </CookiesProvider>
+  </CookiesProvider>
 );

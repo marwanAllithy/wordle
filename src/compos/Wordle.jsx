@@ -35,7 +35,7 @@ export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
         transition: "300ms",
         height: "90vh",
       }}
-    > 
+    >
       {solution}
       <Grid
         isLightMode={isLightMode}

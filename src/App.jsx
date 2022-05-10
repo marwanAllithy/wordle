@@ -32,13 +32,23 @@ function App() {
       <nav className="navbar">
         <div
           className="scores"
-          style={{ color: !isLightMode ? "#121213" : "#ededed" }}
+          style={{
+            color: !isLightMode ? "#121213" : "#ededed",
+            transition: "300ms",
+          }}
         >
           <h2 className="scores__statement">
             wins: {cookies.wins} | tries: {cookies.tries}
           </h2>
         </div>
-        <h1 style={{ color: !isLightMode ? "#121213" : "#ededed" }}>Wordle</h1>
+        <h1
+          style={{
+            color: !isLightMode ? "#121213" : "#ededed",
+            transition: "300ms",
+          }}
+        >
+          Wordle
+        </h1>
         <div
           style={{ color: !isLightMode ? "#121213" : "#ededed" }}
           onClick={() =>

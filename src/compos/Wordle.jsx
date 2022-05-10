@@ -1,8 +1,9 @@
 import useWorldle from "../../hooks/useWordle";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Grid from "./Grid";
 import KeyPad from "./KeyPad";
 import { useCookies } from "react-cookie";
+import Model from "./Model";
 
 export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
   const {
@@ -15,21 +16,29 @@ export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
     tries,
     handleKeyUp,
   } = useWorldle(solution);
+  //cookies
   const [cookies, setCookie] = useCookies(["score"]);
   setCookie("tries", tries, { path: "/" });
   setCookie("wins", wins, { path: "/" });
   setWins(wins);
   setTries(tries);
 
+  //model
+  const [showModel, setShowModel] = useState(false);
+
   useEffect(() => {
     window.addEventListener("keyup", handleKeyUp);
     if (isCorrect) {
-      console.log("winner!");
+      setTimeout(() => {
+        setShowModel(true);
+      }, 2000);
       window.removeEventListener("keyup", handleKeyUp);
     }
 
     if (turn > 5) {
-      console.log("game over");
+      setTimeout(() => {
+        setShowModel(true);
+      }, 2000);
       window.removeEventListener("keyup", handleKeyUp);
     }
 
@@ -53,9 +62,14 @@ export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
       />
       <KeyPad
         usedKeys={usedKeys}
+        isCorrect={isCorrect}
+        turn={turn}
         handleKeyUp={handleKeyUp}
         isLightMode={isLightMode}
       />
+      {showModel && (
+        <Model isCorrect={isCorrect} solution={solution} turn={turn} />
+        )}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-export default function KeyPad({ isLightMode, handleKeyUp, usedKeys }) {
+export default function KeyPad({ isLightMode, handleKeyUp, turn, isCorrect, usedKeys }) {
   const lettersArray = [
     "q",
     "w",
@@ -37,6 +37,15 @@ export default function KeyPad({ isLightMode, handleKeyUp, usedKeys }) {
   }
   useEffect(() => {
     window.addEventListener("keyup", handleKeyUp);
+    if (isCorrect) {
+      console.log("winner!");
+      window.removeEventListener("keyup", handleKeyUp);
+    }
+
+    if (turn > 5) {
+      console.log("game over");
+      window.removeEventListener("keyup", handleKeyUp);
+    }
     return () => window.removeEventListener("keyup", handleKeyUp);
   }, [handleKeyUp]);
 

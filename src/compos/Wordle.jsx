@@ -23,11 +23,19 @@ export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
 
   useEffect(() => {
     window.addEventListener("keyup", handleKeyUp);
+    if (isCorrect) {
+      console.log("winner!");
+      window.removeEventListener("keyup", handleKeyUp);
+    }
+
+    if (turn > 5) {
+      console.log("game over");
+      window.removeEventListener("keyup", handleKeyUp);
+    }
+
     return () => window.removeEventListener("keyup", handleKeyUp);
-  }, [handleKeyUp]);
-  useEffect(() => {
-    //     console.log(guesses, turn, isCorrect);
-  }, [guesses, turn, isCorrect]);
+  }, [handleKeyUp, isCorrect, turn]);
+
   return (
     <div
       style={{
@@ -36,7 +44,7 @@ export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
         height: "90vh",
       }}
     >
-      {solution}
+      {/* {solution} */}
       <Grid
         isLightMode={isLightMode}
         currentGuess={currentGuess}

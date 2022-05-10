@@ -30,18 +30,9 @@ function App() {
       }}
     >
       <nav className="navbar">
-        <div
-          className="scores"
-          style={{
-            color: !isLightMode ? "#121213" : "#ededed",
-            transition: "300ms",
-          }}
-        >
-          <h2 className="scores__statement">
-            wins: {cookies.wins} | tries: {cookies.tries}
-          </h2>
-        </div>
+        <div></div>
         <h1
+          className="title"
           style={{
             color: !isLightMode ? "#121213" : "#ededed",
             transition: "300ms",

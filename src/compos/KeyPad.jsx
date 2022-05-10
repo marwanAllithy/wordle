@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 
-export default function KeyPad({ isLightMode, handleKeyUp, turn, isCorrect, usedKeys }) {
+export default function KeyPad({
+  isLightMode,
+  handleKeyUp,
+  turn,
+  isCorrect,
+  usedKeys,
+}) {
   const lettersArray = [
     "q",
     "w",
@@ -53,16 +59,16 @@ export default function KeyPad({ isLightMode, handleKeyUp, turn, isCorrect, used
     <div className="keypad">
       {letters?.map((l) => {
         const color = usedKeys[l];
-     //    console.log(usedKeys);
-     //    console.log(color);
+        //    console.log(usedKeys);
+        //    console.log(color);
         return (
           <div
             key={l}
             onClick={() => handleKeyUp({ key: l })}
-             style={{
+            style={{
               background: !isLightMode ? "#121213" : "#ededed",
-              transition: "300ms",
               color: isLightMode ? "#121213" : "#ededed",
+              transition: "300ms",
             }}
             className={color}
             //  className="yellow"

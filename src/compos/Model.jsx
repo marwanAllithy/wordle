@@ -1,8 +1,11 @@
-const Model = ({ isCorrect, solution, turn }) => {
+import Scores from "./Scores";
+
+const Model = ({ isCorrect, cookies, solution, turn }) => {
   return (
     <div className="modal">
       {isCorrect && (
         <div>
+          <Scores cookies={cookies} isCorrect={isCorrect} />
           <h1>You Win!</h1>
           <p className="solution">
             <span>the word was</span>
@@ -13,6 +16,7 @@ const Model = ({ isCorrect, solution, turn }) => {
       )}
       {!isCorrect && (
         <div>
+          <Scores cookies={cookies} isCorrect={isCorrect} />
           <h1>you lose...</h1>
           <p className="solution">{solution}</p>
           <p>Better luck next time :/</p>

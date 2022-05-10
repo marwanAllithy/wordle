@@ -68,7 +68,7 @@ export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
         isLightMode={isLightMode}
       />
       {showModel && (
-        <Model isCorrect={isCorrect} solution={solution} turn={turn} />
+         <Model cookies={cookies} isCorrect={isCorrect} solution={solution} turn={turn} />
         )}
     </div>
   );

@@ -13,15 +13,15 @@ export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
     usedKeys,
     turn,
     wins,
-    tries,
+    // tries,
     handleKeyUp,
   } = useWorldle(solution);
   //cookies
   const [cookies, setCookie] = useCookies(["score"]);
-  setCookie("tries", tries, { path: "/" });
+  // setCookie("tries", tries, { path: "/" });
   setCookie("wins", wins, { path: "/" });
   setWins(wins);
-  setTries(tries);
+  // setTries(tries);
 
   //model
   const [showModel, setShowModel] = useState(false);
@@ -67,9 +67,9 @@ export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
         handleKeyUp={handleKeyUp}
         isLightMode={isLightMode}
       />
-      {showModel && (
-         <Model cookies={cookies} isCorrect={isCorrect} solution={solution} turn={turn} />
-        )}
+      {/* {showModel && (
+        )} */}
+        <Model cookies={cookies} isCorrect={isCorrect} solution={solution} turn={turn} />
     </div>
   );
 };

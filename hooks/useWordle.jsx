@@ -8,8 +8,8 @@ const useWorldle = (solution) => {
   const [history, setHistory] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({});
-  const [cookies, setCookie] = useCookies(["score"]);
-  const [tries, setTries] = useState(cookies.tries);
+  const [cookies] = useCookies(["score"]);
+  // const [tries, setTries] = useState(cookies.tries);
   const [wins, setWins] = useState(cookies.wins);
 
   //format a guess into a array of letter objects
@@ -80,25 +80,21 @@ const useWorldle = (solution) => {
     if (key === "Enter") {
       //only add guess if turn is less that 5
       if (turn > 5) {
-        console.log("you have reached all of your guesses");
-        setTries(+tries + 1);
+        // setTries(+tries + 1);
         return;
       }
 
       //dont allow the user to submit the same guess twice
       if (history.includes(currentGuess)) {
-        console.log("you have already guessed this word");
         return;
       }
 
       //check word is 5 letters long
       if (currentGuess.length !== 5) {
-        console.log("word must be 5 letters long");
         return;
       }
 
       const formatted = formateGuess();
-      //     console.log(formatted)
       addNewGuesses(formatted);
     }
 
@@ -123,7 +119,7 @@ const useWorldle = (solution) => {
     guesses,
     usedKeys,
     wins,
-    tries,
+    // tries,
     isCorrect,
     handleKeyUp,
   };

@@ -9,7 +9,6 @@ const useWorldle = (solution) => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({});
   const [cookies] = useCookies(["score"]);
-  // const [tries, setTries] = useState(cookies.tries);
   const [wins, setWins] = useState(cookies.wins);
 
   //format a guess into a array of letter objects
@@ -80,7 +79,6 @@ const useWorldle = (solution) => {
     if (key === "Enter") {
       //only add guess if turn is less that 5
       if (turn > 5) {
-        // setTries(+tries + 1);
         return;
       }
 
@@ -109,7 +107,6 @@ const useWorldle = (solution) => {
         });
       }
 
-      // console.log(key)
     }
   };
 
@@ -119,7 +116,6 @@ const useWorldle = (solution) => {
     guesses,
     usedKeys,
     wins,
-    // tries,
     isCorrect,
     handleKeyUp,
   };

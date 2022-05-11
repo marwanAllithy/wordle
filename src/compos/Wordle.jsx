@@ -13,15 +13,11 @@ export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
     usedKeys,
     turn,
     wins,
-    // tries,
     handleKeyUp,
   } = useWorldle(solution);
-  //cookies
   const [cookies, setCookie] = useCookies(["score"]);
-  // setCookie("tries", tries, { path: "/" });
   setCookie("wins", wins, { path: "/" });
   setWins(wins);
-  // setTries(tries);
 
   //model
   const [showModel, setShowModel] = useState(false);
@@ -53,7 +49,6 @@ export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
         height: "90vh",
       }}
     >
-      {/* {solution} */}
       <Grid
         isLightMode={isLightMode}
         currentGuess={currentGuess}

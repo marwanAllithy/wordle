@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function KeyPad({
   isLightMode,
@@ -37,7 +37,7 @@ export default function KeyPad({
     "m",
     "Enter",
   ];
-  const [letters, setLetters] = React.useState();
+  const [letters, setLetters] = useState();
   if (!letters) {
     setLetters(lettersArray);
   }
@@ -59,8 +59,6 @@ export default function KeyPad({
     <div className="keypad">
       {letters?.map((l) => {
         const color = usedKeys[l];
-        //    console.log(usedKeys);
-        //    console.log(color);
         return (
           <div
             key={l}
@@ -71,7 +69,6 @@ export default function KeyPad({
               transition: "300ms",
             }}
             className={color}
-            //  className="yellow"
           >
             {l}
           </div>

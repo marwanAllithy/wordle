@@ -13,13 +13,11 @@ function App() {
       );
     }
   }, []);
-  // console.log(solution)
 
   //Cookies
   const [cookies, setCookie] = useCookies(["score"]);
   const [tries, setTries] = useState(0);
   const [wins, setWins] = useState(0);
-  // console.log(wins, tries);
 
   return (
     <div

@@ -8,8 +8,6 @@ const useWorldle = (solution) => {
   const [history, setHistory] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({});
-  const [cookies] = useCookies(["score"]);
-  const [wins, setWins] = useState(cookies.wins);
 
   //format a guess into a array of letter objects
   const formateGuess = () => {
@@ -41,8 +39,6 @@ const useWorldle = (solution) => {
   const addNewGuesses = (formattedGuess) => {
     if (currentGuess === solution) {
       setIsCorrect(true);
-      setWins(+wins + 1);
-      setTries(+tries + 1);
     }
     setGuesses((prevGuesses) => {
       let newGuesses = [...prevGuesses];
@@ -106,7 +102,6 @@ const useWorldle = (solution) => {
           return prev + key;
         });
       }
-
     }
   };
 
@@ -115,7 +110,6 @@ const useWorldle = (solution) => {
     currentGuess,
     guesses,
     usedKeys,
-    wins,
     isCorrect,
     handleKeyUp,
   };

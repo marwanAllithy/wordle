@@ -5,19 +5,12 @@ import KeyPad from "./KeyPad";
 import { useCookies } from "react-cookie";
 import Model from "./Model";
 
-export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
-  const {
-    currentGuess,
-    guesses,
-    isCorrect,
-    usedKeys,
-    turn,
-    wins,
-    handleKeyUp,
-  } = useWorldle(solution);
+export const Wordle = ({ solution, isLightMode }) => {
+  const { currentGuess, guesses, isCorrect, usedKeys, turn, handleKeyUp } =
+    useWorldle(solution);
   const [cookies, setCookie] = useCookies(["score"]);
+  const [wins, setWins] = useState(cookies.wins);
   setCookie("wins", wins, { path: "/" });
-  setWins(wins);
 
   //model
   const [showModel, setShowModel] = useState(false);
@@ -27,6 +20,7 @@ export const Wordle = ({ solution, isLightMode, setWins, setTries }) => {
     if (isCorrect) {
       setTimeout(() => {
         setShowModel(true);
+        setWins(+wins + 1);
       }, 2000);
       window.removeEventListener("keyup", handleKeyUp);
     }

@@ -15,9 +15,6 @@ function App() {
   }, []);
 
   //Cookies
-  const [cookies, setCookie] = useCookies(["score"]);
-  const [tries, setTries] = useState(0);
-  const [wins, setWins] = useState(0);
 
   return (
     <div
@@ -49,14 +46,7 @@ function App() {
             {isLightMode ? <BsFillSunFill /> : <BsFillMoonFill />}
           </div>
         </nav>
-        {solution && (
-          <Wordle
-            setWins={setWins}
-            setTries={setTries}
-            isLightMode={isLightMode}
-            solution={solution}
-          />
-        )}
+        {solution && <Wordle isLightMode={isLightMode} solution={solution} />}
       </div>
     </div>
   );

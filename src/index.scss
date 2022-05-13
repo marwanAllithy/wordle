@@ -8,8 +8,9 @@ body {
   scroll-behavior: smooth;
   font-family: "Lato", sans-serif;
 }
-.App{
-  height: 100vh;
+.App,
+body {
+  height: fit-content;
 }
 .navbar {
   border-bottom: 2px solid #bebebe;
@@ -215,4 +216,25 @@ body {
 
 .retry__btn:active {
   transform: translateY(-1px);
+}
+@media (max-width: 600px) {
+  .keypad {
+    max-width: 480px;
+    margin: 20px auto;
+  }
+  .keypad > div {
+    height: 45px;
+    min-width: 35px;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .keypad {
+    max-width: 100%;
+  }
+  .keypad > div {
+    height: 45px;
+    min-width: 24px;
+    font-size: 0.81rem;
+  }
 }

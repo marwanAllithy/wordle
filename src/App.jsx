@@ -27,35 +27,37 @@ function App() {
         transition: "300ms",
       }}
     >
-      <nav className="navbar">
-        <div></div>
-        <h1
-          className="title"
-          style={{
-            color: !isLightMode ? "#121213" : "#ededed",
-            transition: "300ms",
-          }}
-        >
-          Wordle
-        </h1>
-        <div
-          style={{ color: !isLightMode ? "#121213" : "#ededed" }}
-          onClick={() =>
-            isLightMode ? setIsLightMode(false) : setIsLightMode(true)
-          }
-          className="mode__button click"
-        >
-          {isLightMode ? <BsFillSunFill /> : <BsFillMoonFill />}
-        </div>
-      </nav>
-      {solution && (
-        <Wordle
-          setWins={setWins}
-          setTries={setTries}
-          isLightMode={isLightMode}
-          solution={solution}
-        />
-      )}
+      <div className="app_wrapper">
+        <nav className="navbar">
+          <div></div>
+          <h1
+            className="title"
+            style={{
+              color: !isLightMode ? "#121213" : "#ededed",
+              transition: "300ms",
+            }}
+          >
+            Wordle
+          </h1>
+          <div
+            style={{ color: !isLightMode ? "#121213" : "#ededed" }}
+            onClick={() =>
+              isLightMode ? setIsLightMode(false) : setIsLightMode(true)
+            }
+            className="mode__button click"
+          >
+            {isLightMode ? <BsFillSunFill /> : <BsFillMoonFill />}
+          </div>
+        </nav>
+        {solution && (
+          <Wordle
+            setWins={setWins}
+            setTries={setTries}
+            isLightMode={isLightMode}
+            solution={solution}
+          />
+        )}
+      </div>
     </div>
   );
 }

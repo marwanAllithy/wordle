@@ -10,7 +10,7 @@ export const Wordle = ({ solution, isLightMode }) => {
     useWorldle(solution);
   const [cookies, setCookie] = useCookies(["score"]);
   const [wins, setWins] = useState(cookies.wins);
-  setCookie("wins", wins, { path: "/" });
+  setCookie("wins", wins, { path: "/ozy-wordle-wins" });
 
   //model
   const [showModel, setShowModel] = useState(false);

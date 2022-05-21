@@ -4,7 +4,7 @@ const Scores = ({ cookies }) => {
   return (
     <figure className="scores">
       <h2 className="scores__statement">
-        wins: {Number(cookies?.wins)}
+        wins: {cookies?.wins}
       </h2>
     </figure>
   );

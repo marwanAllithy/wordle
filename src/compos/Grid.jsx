@@ -15,7 +15,7 @@ export default function Grid({ turn, guesses, currentGuess, isLightMode }) {
           );
         }
 
-        return <Row key={index} isLightMode={isLightMode} guess={g} />;
+        return <Row  isLightMode={isLightMode} guess={g} />;
       })}
     </div>
   );

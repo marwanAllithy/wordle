@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Wordle } from "./compos/Wordle";
 import solutionsData from "../data/db";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
-import { useCookies } from "react-cookie";
 function App() {
   const [solution, setSolution] = useState();
   const [isLightMode, setIsLightMode] = useState(true);

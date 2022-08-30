@@ -1,11 +1,11 @@
 import React from "react";
+import useScore from "../stores/score";
 
-const Scores = ({ cookies }) => {
+const Scores = () => {
+  const { wins } = useScore();
   return (
     <figure className="scores">
-      <h2 className="scores__statement">
-        wins: {String(cookies?.wins)}
-      </h2>
+      <h2 className="scores__statement">wins: {wins}</h2>
     </figure>
   );
 };

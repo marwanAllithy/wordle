@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { useCookies } from "react-cookie";
-
+import { useState } from "react";
+import useScore from "../src/stores/score";
 const useWorldle = (solution) => {
   const [turn, setTurn] = useState(0);
   const [currentGuess, setCurrentGuess] = useState("");
@@ -8,7 +7,7 @@ const useWorldle = (solution) => {
   const [history, setHistory] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({});
-
+  const { addWin } = useScore();
   //format a guess into a array of letter objects
   const formateGuess = () => {
     // console.log("formatting the guess - ", currentGuess);
@@ -33,12 +32,10 @@ const useWorldle = (solution) => {
     });
     return formattedGuess;
   };
-  //add a new guess to the guessing state
-  //update the incorrect state if the guess is correct
-  // add one to the turn state
   const addNewGuesses = (formattedGuess) => {
     if (currentGuess === solution) {
       setIsCorrect(true);
+      addWin();
     }
     setGuesses((prevGuesses) => {
       let newGuesses = [...prevGuesses];
@@ -69,24 +66,13 @@ const useWorldle = (solution) => {
     setTurn(turn + 1);
     setCurrentGuess("");
   };
-  //handle keyup event and track the current guess
-  //if user presses enter then add the guess to the guessing state
   const handleKeyUp = ({ key }) => {
     if (key === "Enter") {
-      //only add guess if turn is less that 5
-      if (turn > 5) {
-        return;
-      }
+      if (turn > 5) return;
 
-      //dont allow the user to submit the same guess twice
-      if (history.includes(currentGuess)) {
-        return;
-      }
+      if (history.includes(currentGuess)) return;
 
-      //check word is 5 letters long
-      if (currentGuess.length !== 5) {
-        return;
-      }
+      if (currentGuess.length !== 5) return;
 
       const formatted = formateGuess();
       addNewGuesses(formatted);

@@ -1,12 +1,12 @@
 import Scores from "./Scores";
 
-const Model = ({ isCorrect, cookies, solution, turn }) => {
+const Model = ({ isCorrect, solution, turn }) => {
   const reload = () => window.location.reload();
   return (
     <div className="modal">
-      {isCorrect && (
+      {isCorrect ? (
         <div>
-          <Scores cookies={cookies} isCorrect={isCorrect} />
+          <Scores isCorrect={isCorrect} />
           <h1>You Win!</h1>
           <p className="solution" style={{ color: isCorrect && "green" }}>
             {solution}
@@ -16,11 +16,10 @@ const Model = ({ isCorrect, cookies, solution, turn }) => {
             Replay
           </button>
         </div>
-      )}
-      {!isCorrect && (
+      ) : (
         <div>
-          <Scores cookies={cookies} isCorrect={isCorrect} />
-          <h1>you lose...</h1>
+          <Scores isCorrect={isCorrect} />
+          <h1>you lost...</h1>
           <p className="solution" style={{ color: !isCorrect && "red" }}>
             {solution}
           </p>
